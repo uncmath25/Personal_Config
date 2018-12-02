@@ -1,0 +1,9 @@
+KeepAlive yes
+ServerAliveInterval 100
+ServerAliveCountMax 100
+
+Host CONFIG_NAME
+  HostName URL
+  User USERNAME
+  IdentityFile ~/.ssh/PRIVATE_KEY_NAME
+  LocalForward LOCAL_PORT localhost:3306

@@ -1,0 +1,37 @@
+alias ll="ls -lah"
+alias python="python3"
+alias python2="python2.7"
+
+# Git shortcuts
+alias gita="git add"
+alias gitau="git add -u"
+alias gitc="git commit"
+alias gitca="git commit --amend"
+alias gitcm="git commit -m"
+alias gits="git status"
+alias gitb="git branch"
+alias gitl="git log --graph --decorate --pretty=oneline --abbrev-commit -20"
+alias gitp="git push"
+alias gitpf="git push -f"
+
+# Personal commands
+export PATH=$PATH:"$HOME/Documents/Commands"
+
+# Go
+export GOPATH="$HOME/Documents/go"
+
+# Spark
+export PYSPARK_PYTHON="python3"
+
+# Setting PATH for Python 3.7
+# The original version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.7/bin:${PATH}"
+export PATH
+
+# Setting PATH for Python 3.7
+# The original version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.7/bin:${PATH}"
+export PATH
+
+# added by Snowflake SnowSQL installer v1.0
+export PATH=/Users/colton/Applications/SnowSQL.app/Contents/MacOS:$PATH
