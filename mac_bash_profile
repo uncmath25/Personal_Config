@@ -1,6 +1,11 @@
 alias ll="ls -lah"
 alias python="python3"
 alias python2="python2.7"
+alias py="python"
+
+alias dk="docker"
+alias mk="make"
+alias tf="terraform"
 
 # Git shortcuts
 alias gita="git add"
@@ -14,6 +19,9 @@ alias gitl="git log --graph --decorate --pretty=oneline --abbrev-commit -20"
 alias gitp="git push"
 alias gitpf="git push -f"
 
+# Docker shortcuts
+alias dkp="dk ps -a"
+
 # Personal commands
 export PATH=$PATH:"$HOME/Documents/Commands"
 
@@ -23,10 +31,7 @@ export GOPATH="$HOME/Documents/go"
 # Spark
 export PYSPARK_PYTHON="python3"
 
-# Setting PATH for Python 3.7
-# The original version is saved in .bash_profile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/3.7/bin:${PATH}"
-export PATH
+# ADDED LATER ON
 
 # Setting PATH for Python 3.7
 # The original version is saved in .bash_profile.pysave

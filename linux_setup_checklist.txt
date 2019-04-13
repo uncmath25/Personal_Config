@@ -23,3 +23,6 @@
 12. Install Applications and set project folders in Applications: MySQL Workbench, VirtualBox, Arduino
 13. Install Atom and Packages: autocomplete-python, atom-ide-ui, ide-typescript, language-markdown,
                                 atom-language-r, language-x86asm, remember-folds (One Dark Theme)
+14. Install java8 for linux pyspark
+  sudo apt-get purge openjdk-\* icedtea-\* icedtea6-\*
+  sudo apt install openjdk-8-jre-headless
