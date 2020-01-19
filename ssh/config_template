@@ -5,5 +5,5 @@ ServerAliveCountMax 100
 Host CONFIG_NAME
   HostName URL
   User USERNAME
-  IdentityFile ~/.ssh/PRIVATE_KEY_NAME
+  IdentityFile ~/.ssh/PRIVATE_KEY_NAME.pem
   LocalForward LOCAL_PORT localhost:3306

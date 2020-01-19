@@ -1,12 +1,10 @@
-alias ll="ls -lah"
+# General Aliases
+alias ll="ls -alh"
 alias python="python3"
 alias python2="python2.7"
 alias py="python"
-
 alias dk="docker"
 alias mk="make"
-alias tf="terraform"
-
 # Git shortcuts
 alias gita="git add"
 alias gitau="git add -u"
@@ -18,25 +16,10 @@ alias gitb="git branch"
 alias gitl="git log --graph --decorate --pretty=oneline --abbrev-commit -20"
 alias gitp="git push"
 alias gitpf="git push -f"
-
 # Docker shortcuts
 alias dkp="dk ps -a"
-
-# Personal commands
-export PATH=$PATH:"$HOME/Documents/Commands"
-
-# Go
-export GOPATH="$HOME/Documents/go"
-
-# Spark
+# Path Additions
+PATH="$HOME/.local/bin":$PATH
+# Environmental Variable
+export GOPATH="$HOME/go"
 export PYSPARK_PYTHON="python3"
-
-# ADDED LATER ON
-
-# Setting PATH for Python 3.7
-# The original version is saved in .bash_profile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/3.7/bin:${PATH}"
-export PATH
-
-# added by Snowflake SnowSQL installer v1.0
-export PATH=/Users/colton/Applications/SnowSQL.app/Contents/MacOS:$PATH

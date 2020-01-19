@@ -1,4 +1,4 @@
-### LINUX 19 TONYA INSTALL SEQUENCE ###
+### LINUX 18.2 SONYA INSTALL SEQUENCE ###
 1. Transfer passwords and Config folder via usb
 2. Organize Home folders as Download, Desktop, Content, Applications
 3. Install Chrome
