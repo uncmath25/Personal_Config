@@ -1,0 +1,53 @@
+#####################
+### DROPLET SETUP ###
+#####################
+
+1. Create new Droplet - Ubuntu 18.04.3
+  Use existing or add new public SSH key
+  Create root password via Access - Reset root password if not given through email
+  https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-18-04
+
+2. SSH as root and setup personal user - ` ssh root@IP_ADDRESS `
+  ` adduser USER `
+  ` usermod -aG sudo USER `
+  Copy auth key for new USER - ` mkdir /home/USER/.ssh && cp /root/.ssh/authorized_keys /home/USER/.ssh/authorized_keys && chown -R USER:USER /home/USER/.ssh`
+  Test new user ssh access before logging off as root user - build profile in ~/.ssh/config on local and run ` ssh PROFILE `
+
+3. Setup up LEMP stack
+  ```
+  sudo apt update
+  sudo apt install -y nginx mysql-server php-fpm php-mysql
+  sudo apt install -y php-fpm php-mysql
+  sudo mysql
+  CREATE USER 'USER'@'localhost' IDENTIFIED BY 'PASSWORD';
+  GRANT ALL PRIVILEGES ON *.* TO 'USER'@'localhost';
+  ```
+  Use nginx.conf with _restart_server script to setup nginx profiles to route requests - can test with "<?php phpinfo();"
+  Only running mysql with local access - access from host via port forwarding - don't need to worry about network security
+  https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-ubuntu-18-04
+
+4. Networking
+  Create or use existing firewall in Networking - Firewalls
+  Inbound - SSH, HTTP, HTTPS, Outbound - all
+  Add new droplet
+
+5. SSL
+  ` sudo add-apt-repository ppa:certbot/certbot && sudo apt install -y python-certbot-nginx `
+  ` sudo certbot --nginx -d example.com -d www.example.com `
+  Certbot auto-manages "/etc/nginx/sites-enabled/default" - copy these changes to the manually managed nginx.conf
+  Test auto-renewal = ` sudo certbot renew --dry-run `
+  https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-18-04
+
+5. Migrate database
+  Make sure that website php mysql creds are updated
+  Run init database script for schema
+  Run populate tables script from saved backup
+  Setup up nightly backup - crontab -e - "0 0 * * * /home/USER/scripts/_backup_budget_tracker_db_latest.sh"
+
+6. Setup up remote git repos for private backups
+  ` mkdir /home/USER/git && cd /home/$USER/git `
+  ` mkdir REPO && cd REPO && git init --bare && cd .. `
+
+7. Setup Docker for remote container deployment (much easier than customizing droplet for each website)
+  https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04
+  Remember to add the droplet user to the Docker group and relog to see changes
