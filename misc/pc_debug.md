@@ -13,3 +13,11 @@ reboot
 ``` bash
 sudo apt-get install -y cinnamon cinnamon-common cinnamon-settings-daemon cinnamon-settings-daemon-dev
 ```
+
+### Fix fsck problems and drop into initramfs (busybox)
+``` bash
+exit
+# Check which volume (e.g /dev/mapper/mint--vg-root) has consistency problems
+fsck -y /dev/mapper/mint--vg-root
+reboot
+```

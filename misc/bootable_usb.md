@@ -5,19 +5,19 @@ Enumerates the cli commands required to create a bootable usb installation media
 
 ### Linux Process
 1. Download the desired **iso** file (e.g. https://linuxmint.com/download.php)
-1. Identify the appropriate usb device (Choose **/dev/sdX** from the following command's output)
+2. Identify the appropriate usb device (Choose **/dev/sdX** from the following command's output)
 ``` bash
 sudo fdisk -l
 ```
-1. Unmount the usb device
+3. Unmount the usb device
 ``` bash
 sudo umount /dev/sdX
 ```
-1. Clear the usb device (BE CAREFUL!)
+4. Clear the usb device (BE CAREFUL!)
 ``` bash
 sudo dd if=/dev/zero of=/dev/sdX bs=1M status=progress
 ```
-1. Write iso image to the usb device (BE CAREFUL!)
+5. Write iso image to the usb device (BE CAREFUL!)
 ``` bash
 sudo dd if=PATH_TO_ISO of=/dev/sdX bs=4M conv=fdatasync status=progress
 ```
